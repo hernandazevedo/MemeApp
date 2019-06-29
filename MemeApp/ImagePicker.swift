@@ -49,7 +49,12 @@ open class ImagePicker: NSObject {
         if let action = self.action(for: .camera, title: "Take photo") {
             alertController.addAction(action)
         }
-        if let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
+        
+        /*
+         Checks if source type camera is available to prevent showing the button
+         Camera roll for devices that does not support to take picture using the camera.
+        */
+        if UIImagePickerController.isSourceTypeAvailable(.camera), let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
             alertController.addAction(action)
         }
         if let action = self.action(for: .photoLibrary, title: "Photo library") {

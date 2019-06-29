@@ -21,7 +21,6 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
     @IBAction func pickImage(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
     }
-    
 }
 
 extension ViewController: ImagePickerDelegate {
