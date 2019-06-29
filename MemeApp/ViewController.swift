@@ -15,6 +15,11 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
     
     @IBOutlet weak var textFieldTop: UITextField!
     @IBOutlet weak var textFieldBottom: UITextField!
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    @IBOutlet weak var toolBar: UIToolbar!
+    var meme = Meme()
+    
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
         NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -73,8 +78,46 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
         configureTextField(textFieldBottom, "BOTTOM")
     }
 
+    @IBAction func shareImage(_ sender: UIBarButtonItem) {
+        let memedImage = generateMemedImage();
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        controller.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) -> () in
+            if (completed) {
+                self.save(memedImage)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func save(_ memedImage: UIImage) {
+        // Cr_ meme
+        self.meme = Meme(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: imageView.image!, memedImage: memedImage)
+    }
+    
     @IBAction func pickImage(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // Render view to an image
+        changeToolbarAndNavigationBarVisibility(true)
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        changeToolbarAndNavigationBarVisibility(false)
+        return memedImage
+    }
+    
+    func changeToolbarAndNavigationBarVisibility(_ isHidden: Bool) {
+        navigationBar.isHidden = isHidden
+        toolBar.isHidden = isHidden
     }
 }
 
@@ -95,4 +138,6 @@ extension ViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
     }
+    
+    
 }
