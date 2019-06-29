@@ -21,19 +21,18 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
         NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSAttributedString.Key.strokeWidth:  -2.0
     ]
-    fileprivate func configureTextFields() {
-        self.textFieldTop.delegate = self
-        self.textFieldTop.defaultTextAttributes = memeTextAttributes
-        self.textFieldTop.borderStyle = .none
-        self.textFieldBottom.delegate = self
-        self.textFieldBottom.defaultTextAttributes = memeTextAttributes
-        self.textFieldBottom.borderStyle = .none
+    fileprivate func configureTextField(_ textFieldName: UITextField) {
+        textFieldName.delegate = self
+        textFieldName.defaultTextAttributes = memeTextAttributes
+        textFieldName.borderStyle = .none
+        textFieldName.textAlignment = .center
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        configureTextFields()
+        configureTextField(textFieldTop)
+        configureTextField(textFieldBottom)
     }
 
     @IBAction func pickImage(_ sender: UIButton) {

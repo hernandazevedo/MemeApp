@@ -31,14 +31,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aS0-2U-wAu">
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TYPE SOME TEXT AT THE TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNT-le-Yee">
-                                <rect key="frame" x="77" y="56.5" width="221.5" height="30"/>
+                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNT-le-Yee">
+                                <rect key="frame" x="9.5" y="56.5" width="356" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TYPE SOME TEXT AT THE BOTTOM" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZD-LS-c1J">
-                                <rect key="frame" x="61.5" y="552" width="252.5" height="30"/>
+                            <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ZD-LS-c1J">
+                                <rect key="frame" x="9.5" y="552" width="356" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -49,6 +49,7 @@
                             <constraint firstItem="wjJ-D0-EWA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5rX-03-gpb"/>
                             <constraint firstItem="wjJ-D0-EWA" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7za-4j-nf1"/>
                             <constraint firstItem="wjJ-D0-EWA" firstAttribute="top" secondItem="aS0-2U-wAu" secondAttribute="bottom" id="Dyq-mQ-cCe"/>
+                            <constraint firstItem="8ZD-LS-c1J" firstAttribute="width" secondItem="aS0-2U-wAu" secondAttribute="width" multiplier="0.95" id="Jci-H1-REx"/>
                             <constraint firstItem="8ZD-LS-c1J" firstAttribute="top" secondItem="aS0-2U-wAu" secondAttribute="bottom" multiplier="0.95" constant="-40" id="LeB-ue-f0j"/>
                             <constraint firstItem="8ZD-LS-c1J" firstAttribute="centerX" secondItem="aS0-2U-wAu" secondAttribute="centerX" id="NWz-wQ-43P"/>
                             <constraint firstItem="wjJ-D0-EWA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UiG-UA-rpN"/>
@@ -56,6 +57,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aS0-2U-wAu" secondAttribute="trailing" id="eNL-KY-RSF"/>
                             <constraint firstItem="BNT-le-Yee" firstAttribute="top" secondItem="aS0-2U-wAu" secondAttribute="top" multiplier="4:3" constant="30" id="ekO-py-VcU"/>
                             <constraint firstItem="aS0-2U-wAu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oq8-nA-XIz"/>
+                            <constraint firstItem="BNT-le-Yee" firstAttribute="width" secondItem="aS0-2U-wAu" secondAttribute="width" multiplier="0.95" id="tOM-DN-rxz"/>
                             <constraint firstItem="BNT-le-Yee" firstAttribute="centerX" secondItem="aS0-2U-wAu" secondAttribute="centerX" id="uMF-q5-OkK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
