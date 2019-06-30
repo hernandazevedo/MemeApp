@@ -1,7 +1,8 @@
 //
 //  ImagePicker.swift
 //  MemeApp
-//  This class was created by Tibor Bödecs on https://theswiftdev.com/2019/01/30/picking-images-with-uiimagepickercontroller-in-swift-5/
+//  This class was originaly created by Tibor Bödecs on https://theswiftdev.com/2019/01/30/picking-images-with-uiimagepickercontroller-in-swift-5/
+//  I have changed the content of the class to conform with the rubric https://review.udacity.com/#!/rubrics/1959/view
 //  Created by Hernand Azevedo on 24/06/19.
 //  Copyright © 2019 Hernand Azevedo. All rights reserved.
 //
@@ -25,51 +26,20 @@ open class ImagePicker: NSObject {
         
         self.presentationController = presentationController
         self.delegate = delegate
-        
         self.pickerController.delegate = self
-        self.pickerController.allowsEditing = true
-        self.pickerController.mediaTypes = ["public.image"]
     }
     
-    private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
+    private func action(for type: UIImagePickerController.SourceType) {
         guard UIImagePickerController.isSourceTypeAvailable(type) else {
-            return nil
+            return
         }
         
-        return UIAlertAction(title: title, style: .default) { [unowned self] _ in
-            self.pickerController.sourceType = type
-            self.presentationController?.present(self.pickerController, animated: true)
-        }
+        self.pickerController.sourceType = type
+        self.presentationController?.present(self.pickerController, animated: true)
     }
     
-    public func present(from sourceView: UIView) {
-        
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        if let action = self.action(for: .camera, title: "Take photo") {
-            alertController.addAction(action)
-        }
-        
-        /*
-         Checks if source type camera is available to prevent showing the button
-         Camera roll for devices that does not support to take picture using the camera.
-        */
-        if UIImagePickerController.isSourceTypeAvailable(.camera), let action = self.action(for: .savedPhotosAlbum, title: "Camera roll") {
-            alertController.addAction(action)
-        }
-        if let action = self.action(for: .photoLibrary, title: "Photo library") {
-            alertController.addAction(action)
-        }
-        
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            alertController.popoverPresentationController?.sourceView = sourceView
-            alertController.popoverPresentationController?.sourceRect = sourceView.bounds
-            alertController.popoverPresentationController?.permittedArrowDirections = [.down, .up]
-        }
-        
-        self.presentationController?.present(alertController, animated: true)
+    public func present(for type: UIImagePickerController.SourceType) {
+        action(for: type)
     }
     
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
@@ -87,7 +57,7 @@ extension ImagePicker: UIImagePickerControllerDelegate {
     
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
+        guard let image = info[.originalImage] as? UIImage else {
             return self.pickerController(picker, didSelect: nil)
         }
         self.pickerController(picker, didSelect: image)

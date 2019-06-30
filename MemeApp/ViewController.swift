@@ -20,7 +20,7 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
-    var meme = Meme()
+    var meme: Meme?
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         NSAttributedString.Key.strokeColor: UIColor.black,
@@ -46,7 +46,11 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate {
     }
     
     @IBAction func pickImage(_ sender: UIButton) {
-        self.imagePicker.present(from: sender)
+        self.imagePicker.present(for: .photoLibrary)
+    }
+    
+    @IBAction func takePicture(_ sender: UIBarButtonItem) {
+        self.imagePicker.present(for: .camera)
     }
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -103,6 +107,7 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate {
     }
     
     func configureInitialState() {
+        meme = Meme()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         shareButton.isEnabled = false
         imageView.image = nil

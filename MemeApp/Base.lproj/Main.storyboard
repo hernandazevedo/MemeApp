@@ -54,7 +54,11 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tCE-YP-3Ix"/>
-                                    <barButtonItem systemItem="camera" id="W5C-cz-i3S"/>
+                                    <barButtonItem systemItem="camera" id="W5C-cz-i3S">
+                                        <connections>
+                                            <action selector="takePicture:" destination="BYZ-38-t0r" id="2VR-BT-4TM"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WDk-wj-AK5"/>
                                     <barButtonItem title="Album" id="jfM-gp-7SC">
                                         <connections>
