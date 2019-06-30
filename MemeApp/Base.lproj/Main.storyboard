@@ -32,10 +32,10 @@
                                 </items>
                             </navigationBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aS0-2U-wAu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
                             <textField opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BNT-le-Yee">
-                                <rect key="frame" x="9.5" y="76.5" width="356" height="30"/>
+                                <rect key="frame" x="9.5" y="80" width="356" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -59,8 +59,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="aS0-2U-wAu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1Cl-oX-JVg"/>
-                            <constraint firstItem="aS0-2U-wAu" firstAttribute="bottom" secondItem="wjJ-D0-EWA" secondAttribute="bottom" id="F6u-ps-S4J"/>
+                            <constraint firstItem="aS0-2U-wAu" firstAttribute="top" secondItem="mms-G3-4ZW" secondAttribute="bottom" id="CxJ-0Q-0fw"/>
+                            <constraint firstItem="aS0-2U-wAu" firstAttribute="bottom" secondItem="wjJ-D0-EWA" secondAttribute="top" id="F6u-ps-S4J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aS0-2U-wAu" secondAttribute="trailing" id="FY3-ru-H4d"/>
                             <constraint firstItem="8ZD-LS-c1J" firstAttribute="width" secondItem="aS0-2U-wAu" secondAttribute="width" multiplier="0.95" id="Jci-H1-REx"/>
                             <constraint firstItem="aS0-2U-wAu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mea-96-mSG"/>
@@ -68,9 +68,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wjJ-D0-EWA" secondAttribute="trailing" id="SAG-U0-GwU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mms-G3-4ZW" secondAttribute="trailing" id="VGh-f0-Ozf"/>
                             <constraint firstItem="mms-G3-4ZW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="YWb-Od-I2d"/>
-                            <constraint firstItem="BNT-le-Yee" firstAttribute="top" secondItem="aS0-2U-wAu" secondAttribute="top" multiplier="4:3" constant="50" id="ekO-py-VcU"/>
+                            <constraint firstItem="BNT-le-Yee" firstAttribute="top" secondItem="aS0-2U-wAu" secondAttribute="top" constant="16" id="ekO-py-VcU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wjJ-D0-EWA" secondAttribute="bottom" id="lAr-Kd-ycL"/>
-                            <constraint firstItem="8ZD-LS-c1J" firstAttribute="bottom" secondItem="aS0-2U-wAu" secondAttribute="bottom" constant="-60" id="lEO-u1-tU5"/>
+                            <constraint firstItem="8ZD-LS-c1J" firstAttribute="bottom" secondItem="aS0-2U-wAu" secondAttribute="bottom" constant="-16" id="lEO-u1-tU5"/>
                             <constraint firstItem="mms-G3-4ZW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="llD-ot-ARd"/>
                             <constraint firstItem="BNT-le-Yee" firstAttribute="width" secondItem="aS0-2U-wAu" secondAttribute="width" multiplier="0.95" id="tOM-DN-rxz"/>
                             <constraint firstItem="BNT-le-Yee" firstAttribute="centerX" secondItem="aS0-2U-wAu" secondAttribute="centerX" id="uMF-q5-OkK"/>
