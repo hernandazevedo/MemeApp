@@ -27,7 +27,11 @@
                                                 <action selector="shareImage:" destination="BYZ-38-t0r" id="O00-Ip-z1E"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="eqe-d0-aCD"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="eqe-d0-aCD">
+                                            <connections>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="ojK-CM-QRg"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

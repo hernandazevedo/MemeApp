@@ -74,10 +74,20 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        configureInitialState()
+    }
+
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        configureInitialState()
+        dismissKeyboard()
+    }
+    
+    func configureInitialState() {
+        imageView.image = nil
         configureTextField(textFieldTop, "TOP")
         configureTextField(textFieldBottom, "BOTTOM")
     }
-
+    
     @IBAction func shareImage(_ sender: UIBarButtonItem) {
         let memedImage = generateMemedImage();
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -85,6 +95,7 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
         controller.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) -> () in
             if (completed) {
                 self.save(memedImage)
+                self.configureInitialState()
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -119,6 +130,11 @@ class ViewController: UIViewController , UIImagePickerControllerDelegate{
         navigationBar.isHidden = isHidden
         toolBar.isHidden = isHidden
     }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
 }
 
 extension ViewController: ImagePickerDelegate {
@@ -139,5 +155,11 @@ extension ViewController: UITextFieldDelegate {
         textField.text = ""
     }
     
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }
